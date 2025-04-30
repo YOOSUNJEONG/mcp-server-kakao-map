@@ -17,6 +17,7 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "start": "node dist/index.js",
+    "postinstall": "npm run build",
     "test": "vitest",
     "test:server": "npm run build && npx @modelcontextprotocol/inspector node dist/index.js",
     "lint-staged": "lint-staged",
