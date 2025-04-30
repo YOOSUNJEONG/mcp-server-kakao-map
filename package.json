@@ -16,7 +16,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "start": "node dist/index.js",               // ✅ Railway 실행을 위한 필수 추가
+    "start": "node dist/index.js",
     "test": "vitest",
     "test:server": "npm run build && npx @modelcontextprotocol/inspector node dist/index.js",
     "lint-staged": "lint-staged",
@@ -59,4 +59,13 @@
     "useTabs": false,
     "semi": true,
     "singleQuote": true,
-    "quoteProps
+    "quoteProps": "as-needed",
+    "jsxSingleQuote": false,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "embeddedLanguageFormatting": "auto"
+  }
+}
