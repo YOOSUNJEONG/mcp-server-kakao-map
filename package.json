@@ -16,6 +16,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
+    "start": "node dist/index.js",               // ✅ Railway 실행을 위한 필수 추가
     "test": "vitest",
     "test:server": "npm run build && npx @modelcontextprotocol/inspector node dist/index.js",
     "lint-staged": "lint-staged",
@@ -34,10 +35,10 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.7.0",
+    "axios": "^1.6.8",
     "dotenv": "^16.4.7",
     "got": "^14.4.6",
-    "zod": "^3.24.2",
-    "axios": "^1.6.8"
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.20.0",
@@ -49,7 +50,8 @@
     "prettier": "^3.5.3",
     "shx": "^0.3.4",
     "typescript": "^5.3.3",
-    "typescript-eslint": "^8.24.0"
+    "typescript-eslint": "^8.24.0",
+    "vitest": "^1.0.0"
   },
   "prettier": {
     "printWidth": 120,
@@ -57,13 +59,4 @@
     "useTabs": false,
     "semi": true,
     "singleQuote": true,
-    "quoteProps": "as-needed",
-    "jsxSingleQuote": false,
-    "trailingComma": "es5",
-    "bracketSpacing": true,
-    "bracketSameLine": false,
-    "arrowParens": "always",
-    "endOfLine": "lf",
-    "embeddedLanguageFormatting": "auto"
-  }
-}
+    "quoteProps
