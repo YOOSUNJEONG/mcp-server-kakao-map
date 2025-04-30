@@ -1,9 +1,11 @@
+// src/index.ts
 #!/usr/bin/env node
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import dotenv from 'dotenv';
+import { search, SearchSchema } from './search.js';
 import { placeReviews, PlaceReviewSchema } from './place-reviews.js';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -13,11 +15,19 @@ const server = new McpServer({
 });
 
 server.tool(
+  'search-kakao-places',
+  'Searches places using Kakao Map API and returns structured summaries.',
+  SearchSchema,
+  search
+);
+
+server.tool(
   'place-reviews',
-  'Returns estimated rating and pros/cons of a place based on user reviews.',
+  'Summarizes reviews and estimates ratings for a given place name.',
   PlaceReviewSchema,
   placeReviews
 );
 
 const transport = new StdioServerTransport();
+
 await server.connect(transport);
