@@ -5,9 +5,7 @@ export const PlaceReviewSchema = z.object({
   query: z.string().describe('Place name (e.g. "폴트버거")'),
 });
 
-export const placeReviews: ToolCallback<z.infer<typeof PlaceReviewSchema>> = async ({ input }) => {
-  const { query } = input;
-
+export const placeReviews: ToolCallback<typeof PlaceReviewSchema> = async ({ query }) => {
   const reviews = await getMockedReviews(query);
 
   const prompt = `
@@ -24,8 +22,7 @@ ${reviews.map((r, i) => `${i + 1}. ${r}`).join('\n')}
   "score": "예상 평점 (정수)",
   "pros": "- 장점1\\n- 장점2\\n- 장점3\\n- 장점4\\n- 장점5",
   "cons": "- 단점1\\n- 단점2\\n- 단점3\\n- 단점4\\n- 단점5"
-}
-`;
+}`;
 
   return {
     content: [{ type: 'text', text: prompt }],
