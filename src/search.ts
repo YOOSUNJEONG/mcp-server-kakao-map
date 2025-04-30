@@ -2,16 +2,18 @@ import { ToolCallback } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 import got from 'got';
 
-export const SearchSchema = {
-  query: z.string().describe('Korean location search keyword like "강남 맛집"')
-};
+export const SearchSchema = z.object({
+  query: z.string().describe('Korean keyword like "강남 고기집"'),
+});
 
-export const search: ToolCallback<typeof SearchSchema> = async ({ query }) => {
+export const search: ToolCallback<typeof SearchSchema.shape> = async ({ input }) => {
+  const { query } = input;
+
   const KAKAO_API_KEY = process.env.KAKAO_API_KEY;
   if (!KAKAO_API_KEY) {
     return {
       isError: true,
-      content: [{ type: 'text', text: 'KAKAO_API_KEY가 환경변수에 없습니다.' }]
+      content: [{ type: 'text', text: 'KAKAO_API_KEY가 설정되지 않았습니다.' }]
     };
   }
 
