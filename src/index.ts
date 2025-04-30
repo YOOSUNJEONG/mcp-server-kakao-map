@@ -4,8 +4,8 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import dotenv from 'dotenv';
 
-import { search, SearchSchema } from './search.js';
 import { placeReviews, PlaceReviewSchema } from './place-reviews.js';
+import { search, SearchSchema } from './search.js';
 
 dotenv.config();
 
@@ -14,8 +14,8 @@ const server = new McpServer({
   version: '0.0.1',
 });
 
-server.tool('search', 'Search Kakao places', SearchSchema, search);
-server.tool('place-reviews', 'Summarize place reviews', PlaceReviewSchema, placeReviews);
+server.tool('place-reviews', 'Summarizes place reviews', PlaceReviewSchema.shape, placeReviews);
+server.tool('search', 'Kakao keyword search', SearchSchema.shape, search);
 
 const transport = new StdioServerTransport();
 await server.connect(transport);
