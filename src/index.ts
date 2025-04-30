@@ -14,8 +14,8 @@ const server = new McpServer({
   version: '0.0.1',
 });
 
-server.tool('place-reviews', 'Summarizes place reviews', PlaceReviewSchema.shape, placeReviews);
-server.tool('search', 'Kakao keyword search', SearchSchema.shape, search);
+server.tool('place-reviews', 'Summarizes reviews into JSON', PlaceReviewSchema.shape, placeReviews);
+server.tool('search', 'Search via Kakao Map API', SearchSchema.shape, search);
 
 const transport = new StdioServerTransport();
 await server.connect(transport);
