@@ -15,7 +15,7 @@ const server = new McpServer({
 });
 
 server.tool(
-  'kakao_map_place_recommender',
+  'place-reviews',
   'Recommends relevant places in South Korea, such as restaurants, cafes, parks, hospitals, banks, shops, or tourist attractions, based on user queries seeking suggestions.',
   SearchSchema,
   search
