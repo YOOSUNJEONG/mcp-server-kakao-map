@@ -5,7 +5,8 @@ export const PlaceReviewSchema = z.object({
   query: z.string().describe('Place name (e.g. "폴트버거")'),
 });
 
-export const placeReviews: ToolCallback<typeof PlaceReviewSchema> = async ({ input }) => {
+// `.shape` 사용해야 ToolCallback과 호환됨
+export const placeReviews: ToolCallback<typeof PlaceReviewSchema.shape> = async (input) => {
   const { query } = input;
 
   const reviews = await getMockedReviews(query);
