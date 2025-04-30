@@ -14,8 +14,8 @@ const server = new McpServer({
   version: '0.0.1',
 });
 
-server.tool('search', 'Search Kakao local places and return structured data.', SearchSchema, search);
-server.tool('place-reviews', 'Summarize mocked reviews into rating and pros/cons.', PlaceReviewSchema, placeReviews);
+server.tool('search', 'Search Kakao places', SearchSchema, search);
+server.tool('place-reviews', 'Summarize place reviews', PlaceReviewSchema, placeReviews);
 
 const transport = new StdioServerTransport();
 await server.connect(transport);
