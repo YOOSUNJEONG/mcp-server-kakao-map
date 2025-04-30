@@ -24,8 +24,8 @@ server.tool(
 // 🔧 새로 만든 리뷰 요약용 툴 등록
 server.tool(
   'place-reviews',
-  'Fetches and analyzes reviews for a given place in South Korea.',
-  PlaceReviewSchema,
+  'Returns summary from KakaoMap-like reviews',
+  PlaceReviewSchema.shape,  // 👈 반드시 `.shape` 붙이기
   placeReviews
 );
 
