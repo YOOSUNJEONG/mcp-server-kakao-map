@@ -6,9 +6,7 @@ export const SearchSchema = z.object({
   query: z.string().describe('Korean keyword like "강남 고기집"'),
 });
 
-export const search: ToolCallback<typeof SearchSchema.shape> = async ({ input }) => {
-  const { query } = input;
-
+export const search: ToolCallback<typeof SearchSchema.shape> = async ({ query }) => {
   const KAKAO_API_KEY = process.env.KAKAO_API_KEY;
   if (!KAKAO_API_KEY) {
     return {
