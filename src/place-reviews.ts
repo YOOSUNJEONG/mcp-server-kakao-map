@@ -22,7 +22,8 @@ ${reviews.map((r, i) => `${i + 1}. ${r}`).join('\n')}
   "score": "예상 평점 (정수)",
   "pros": "- 장점1\\n- 장점2\\n- 장점3\\n- 장점4\\n- 장점5",
   "cons": "- 단점1\\n- 단점2\\n- 단점3\\n- 단점4\\n- 단점5"
-}`;
+}
+`;
 
   return {
     content: [{ type: 'text', text: prompt }],
