@@ -19,7 +19,7 @@ server.tool(
   search
 );
 
-import { HttpServerTransport } from '@modelcontextprotocol/sdk/server/http.js';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+const transport = new StdioServerTransport();
 
-const transport = new HttpServerTransport({ port: process.env.PORT || 8080 });
 await server.connect(transport);
