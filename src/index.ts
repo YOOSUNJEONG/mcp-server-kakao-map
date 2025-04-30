@@ -13,13 +13,13 @@ const server = new McpServer({
 });
 
 server.tool(
-  'place-reviews',
-  'Summarize user reviews of a Korean place into score, pros, and cons.',
-  PlaceReviewSchema.shape, // 반드시 .shape 필요
+  'place-reviews', // 🟡 이 이름이 엔드포인트 이름이 됩니다.
+  'Summarizes mock reviews and returns rating, pros and cons.',
+  PlaceReviewSchema.shape, // ✅ 반드시 `.shape`로 전달해야 MCP에서 작동
   placeReviews
 );
 
 const transport = new StdioServerTransport();
 
-// ✅ 이 줄 없으면 MCP 응답 안 함 (502 발생)
+// ✅ MCP Tool이 외부 요청을 받을 수 있게 연결
 await server.connect(transport);
