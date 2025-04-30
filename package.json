@@ -1,18 +1,24 @@
 {
-  "name": "@cgoinglove/mcp-server-kakao-map",
+  "name": "mcp-server-kakao-map",
   "version": "0.0.1",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.7.0",
     "dotenv": "^16.4.7",
+    "got": "^14.4.6",
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@types/node": "^20.0.0",
     "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
